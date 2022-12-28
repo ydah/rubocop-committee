@@ -1,5 +1,5 @@
 name: rubocop-committee
 title: RuboCop Committee
-version: ~
+version: "0.1.0"
 nav:
   - modules/ROOT/nav.adoc

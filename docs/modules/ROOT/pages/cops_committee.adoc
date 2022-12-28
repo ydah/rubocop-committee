@@ -8,7 +8,7 @@
 | Pending
 | Yes
 | Yes
-| <<next>>
+| 0.1
 | -
 |===
 
@@ -40,7 +40,7 @@ end
 | Pending
 | Yes
 | Yes
-| <<next>>
+| 0.1
 | -
 |===
 

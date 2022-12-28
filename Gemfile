@@ -4,6 +4,7 @@ source "https://rubygems.org"
 
 gemspec
 
+gem 'bump', require: false
 gem "rake"
 gem "rspec"
 gem "rubocop-performance"
