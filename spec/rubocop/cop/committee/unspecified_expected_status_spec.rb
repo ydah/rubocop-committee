@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RuboCop::Cop::Committee::ExpectedResponseStatusCode, :config do
+RSpec.describe RuboCop::Cop::Committee::UnspecifiedExpectedStatus, :config do
   it "registers an offense and autocorrects when using `assert_schema_conform` " \
      "with no argument and `have_http_status`" do
     expect_offense(<<~RUBY)

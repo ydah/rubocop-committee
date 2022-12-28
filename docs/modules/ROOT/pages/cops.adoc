@@ -2,7 +2,7 @@
 
 === Department xref:cops_committee.adoc[Committee]
 
-* xref:cops_committee.adoc#committeeexpectedresponsestatuscode[Committee/ExpectedResponseStatusCode]
 * xref:cops_committee.adoc#committeeredundantresponsestatusassertions[Committee/RedundantResponseStatusAssertions]
+* xref:cops_committee.adoc#committeeunspecifiedexpectedstatus[Committee/UnspecifiedExpectedStatus]
 
 // END_COP_LIST

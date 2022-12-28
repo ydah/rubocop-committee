@@ -20,7 +20,7 @@ module RuboCop
       #     assert_schema_conform(400)
       #   end
       #
-      class ExpectedResponseStatusCode < Base
+      class UnspecifiedExpectedStatus < Base
         include RangeHelp
         extend AutoCorrector
 

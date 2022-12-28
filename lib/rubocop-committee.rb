@@ -3,8 +3,8 @@
 require_relative "rubocop/committee/inject"
 require_relative "rubocop/committee/version"
 
-require_relative "rubocop/cop/committee/expected_response_status_code"
 require_relative "rubocop/cop/committee/redundant_response_status_assertions"
+require_relative "rubocop/cop/committee/unspecified_expected_status"
 
 module RuboCop
   module Committee

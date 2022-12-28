@@ -6,7 +6,7 @@ inherit_mode:
 Committee:
   Enabled: true
 
-Committee/ExpectedResponseStatusCode:
+Committee/UnspecifiedExpectedStatus:
   Description: |
     Check if the status code is specified as an argument to the method of the Committee
     where the expected response status code is required.
