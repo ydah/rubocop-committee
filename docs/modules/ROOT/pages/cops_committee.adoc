@@ -5,10 +5,10 @@
 |===
 | Enabled by default | Safe | Supports autocorrection | Version Added | Version Changed
 
-| Disabled
+| Pending
 | Yes
 | Yes
-| -
+| <<next>>
 | -
 |===
 
@@ -33,15 +33,15 @@ it 'something' do
 end
 ----
 
-== Committee/RedundantHttpStatus
+== Committee/RedundantResponseStatusAssertions
 
 |===
 | Enabled by default | Safe | Supports autocorrection | Version Added | Version Changed
 
-| Disabled
+| Pending
 | Yes
 | Yes
-| -
+| <<next>>
 | -
 |===
 

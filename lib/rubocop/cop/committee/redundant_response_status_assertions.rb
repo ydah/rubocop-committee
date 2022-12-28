@@ -19,7 +19,7 @@ module RuboCop
       #     assert_schema_conform(400)
       #   end
       #
-      class RedundantHttpStatus < Base
+      class RedundantResponseStatusAssertions < Base
         include RangeHelp
         extend AutoCorrector
 

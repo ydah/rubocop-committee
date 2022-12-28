@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RuboCop::Cop::Committee::RedundantHttpStatus, :config do
+RSpec.describe RuboCop::Cop::Committee::RedundantResponseStatusAssertions, :config do
   it "registers an offense and autocorrects when using `assert_schema_conform` " \
      "with argument and `have_http_status`" do
     expect_offense(<<~RUBY)

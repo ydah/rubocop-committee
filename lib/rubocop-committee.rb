@@ -4,7 +4,7 @@ require_relative "rubocop/committee/inject"
 require_relative "rubocop/committee/version"
 
 require_relative "rubocop/cop/committee/expected_response_status_code"
-require_relative "rubocop/cop/committee/redundant_http_status"
+require_relative "rubocop/cop/committee/redundant_response_status_assertions"
 
 module RuboCop
   module Committee
@@ -16,4 +16,3 @@ module RuboCop
 end
 
 RuboCop::Committee::Inject.defaults!
-require_relative 'rubocop/cop/rspec/foo_cop'

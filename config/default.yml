@@ -13,7 +13,7 @@ Committee/ExpectedResponseStatusCode:
   Enabled: pending
   VersionAdded: "<<next>>"
 
-Committee/RedundantHttpStatus:
+Committee/RedundantResponseStatusAssertions:
   Description: Check for validation of redundant response HTTP status codes.
   Enabled: pending
   VersionAdded: "<<next>>"

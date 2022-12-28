@@ -3,6 +3,6 @@
 === Department xref:cops_committee.adoc[Committee]
 
 * xref:cops_committee.adoc#committeeexpectedresponsestatuscode[Committee/ExpectedResponseStatusCode]
-* xref:cops_committee.adoc#committeeredundanthttpstatus[Committee/RedundantHttpStatus]
+* xref:cops_committee.adoc#committeeredundantresponsestatusassertions[Committee/RedundantResponseStatusAssertions]
 
 // END_COP_LIST
