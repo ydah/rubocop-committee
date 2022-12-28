@@ -16,3 +16,4 @@ module RuboCop
 end
 
 RuboCop::Committee::Inject.defaults!
+require_relative 'rubocop/cop/rspec/foo_cop'
