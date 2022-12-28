@@ -1,41 +1,84 @@
-# Rubocop::Committee
+# RuboCop Committee
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rubocop/committee`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Committee-specific analysis for your projects, as an extension to
+[RuboCop](https://github.com/rubocop/rubocop).
 
 ## Installation
 
-Install the gem and add to the application's Gemfile by executing:
+Just install the `rubocop-committee` gem
+
+```bash
+gem install rubocop-committee
+```
+
+or if you use bundler put this in your `Gemfile`
 
 ```
-$ bundle add rubocop-committee
-```
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-```
-$ gem install rubocop-committee
+gem 'rubocop-committee', require: false
 ```
 
 ## Usage
 
-TODO: Write usage instructions here
+You need to tell RuboCop to load the Committee extension. There are two
+ways to do this:
 
-## Development
+### RuboCop configuration file
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Put this into your `.rubocop.yml`.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```yaml
+require: rubocop-committee
+```
+
+Alternatively, use the following array notation when specifying multiple extensions.
+
+```yaml
+require:
+  - rubocop-other-extension
+  - rubocop-committee
+```
+
+Now you can run `rubocop` and it will automatically load the RuboCop Committee
+cops together with the standard cops.
+
+### Command line
+
+```bash
+rubocop --require rubocop-committee
+```
+
+### Rake task
+
+```ruby
+RuboCop::RakeTask.new do |task|
+  task.requires << 'rubocop-committee'
+end
+```
+
+## Documentation
+
+You can read more about RuboCop Committee in its official manual.
+
+## The Cops
+
+All cops are located under
+[`lib/rubocop/cop/committee`](lib/rubocop/cop/committee), and contain
+examples/documentation.
+
+In your `.rubocop.yml`, you may treat the Committee cops just like any other
+cop. For example:
+
+```yaml
+Committee/FilePath:
+  Exclude:
+    - spec/my_poorly_named_spec_file.rb
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/%5BUSERNAME%5D/rubocop-committee. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/%5BUSERNAME%5D/rubocop-committee/blob/main/CODE_OF_CONDUCT.md).
+Checkout the [contribution guidelines](.github/CONTRIBUTING.md).
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Rubocop::Committee project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/%5BUSERNAME%5D/rubocop-committee/blob/main/CODE_OF_CONDUCT.md).
+`rubocop-committee` is MIT licensed. [See the accompanying file](MIT-LICENSE.md) for
+the full text.
