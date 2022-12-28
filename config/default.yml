@@ -1,0 +1,14 @@
+---
+inherit_mode:
+  merge:
+    - Exclude
+
+Committee/ExpectedResponseStatusCode:
+  Description: |
+    Check if the status code is specified as an argument to the method of the Committee
+    where the expected response status code is required.
+  Enabled: false
+
+Committee/RedundantHttpStatus:
+  Description: Check for validation of redundant response HTTP status codes.
+  Enabled: false
