@@ -1,0 +1,66 @@
+= Committee
+
+== Committee/ExpectedResponseStatusCode
+
+|===
+| Enabled by default | Safe | Supports autocorrection | Version Added | Version Changed
+
+| Disabled
+| Yes
+| Yes
+| -
+| -
+|===
+
+Check if the status code is specified as an argument to the method of the Committee
+where the expected response status code is required.
+
+=== Examples
+
+[source,ruby]
+----
+# bad
+it 'something' do
+  subject
+  expect(response).to have_http_status 400
+  assert_schema_conform
+end
+
+# good
+it 'something' do
+  subject
+  assert_schema_conform(400)
+end
+----
+
+== Committee/RedundantHttpStatus
+
+|===
+| Enabled by default | Safe | Supports autocorrection | Version Added | Version Changed
+
+| Disabled
+| Yes
+| Yes
+| -
+| -
+|===
+
+Check for validation of redundant response HTTP status codes.
+
+=== Examples
+
+[source,ruby]
+----
+# bad
+it 'something' do
+  subject
+  expect(response).to have_http_status 400
+  assert_schema_conform(400)
+end
+
+# good
+it 'something' do
+  subject
+  assert_schema_conform(400)
+end
+----

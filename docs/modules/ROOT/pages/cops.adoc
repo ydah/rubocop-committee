@@ -1,0 +1,8 @@
+// START_COP_LIST
+
+=== Department xref:cops_committee.adoc[Committee]
+
+* xref:cops_committee.adoc#committeeexpectedresponsestatuscode[Committee/ExpectedResponseStatusCode]
+* xref:cops_committee.adoc#committeeredundanthttpstatus[Committee/RedundantHttpStatus]
+
+// END_COP_LIST

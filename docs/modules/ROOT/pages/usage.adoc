@@ -1,0 +1,37 @@
+= Usage
+
+You need to tell RuboCop to load the RuboCop Committee extension.
+There are some ways to do this:
+
+== RuboCop configuration file
+
+Put this into your `.rubocop.yml`:
+
+----
+require: rubocop-committee
+----
+
+or, if you are using several extensions:
+
+----
+require:
+  - rubocop-committee
+  - rubocop-rspec
+----
+
+Now you can run `rubocop` and it will automatically load the RuboCop Committee
+cops together with the standard cops.
+
+[source,bash]
+----
+$ rubocop --require rubocop-committee
+----
+
+== Rake task
+
+[source,ruby]
+----
+RuboCop::RakeTask.new do |task|
+  task.requires << 'rubocop-committee'
+end
+----
