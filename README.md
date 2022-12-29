@@ -59,7 +59,7 @@ end
 
 ## Documentation
 
-You can read more about RuboCop Committee in its official manual.
+You can read more about RuboCop Committee in its [official manual](https://ydah.github.io/rubocop.docs/rubocop-committee/).
 
 ## The Cops
 
