@@ -10,14 +10,13 @@ module RuboCop
       #   # bad
       #   it 'something' do
       #     subject
-      #     expect(response).to have_http_status 400
       #     assert_schema_conform
       #   end
       #
       #   # good
       #   it 'something' do
       #     subject
-      #     assert_schema_conform(400)
+      #     assert_schema_conform(200)
       #   end
       #
       class UnspecifiedExpectedStatus < Base
