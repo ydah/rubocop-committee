@@ -32,8 +32,3 @@ jobs:
           bundler-cache: true
       - name: Run the default task
         run: bundle exec rake
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v3
-        with:
-          name: code-coverage-report
-          path: coverage
