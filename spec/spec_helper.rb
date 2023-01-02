@@ -3,6 +3,8 @@
 require "rubocop-committee"
 require "rubocop/rspec/support"
 
+require "simplecov" unless ENV["NO_COVERAGE"]
+
 RSpec.configure do |config|
   config.include RuboCop::RSpec::ExpectOffense
   config.order = :random
