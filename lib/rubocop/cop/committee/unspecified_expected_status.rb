@@ -8,13 +8,13 @@ module RuboCop
       #
       # @example
       #   # bad
-      #   it 'something' do
+      #   it 'does something' do
       #     subject
       #     assert_schema_conform
       #   end
       #
       #   # good
-      #   it 'something' do
+      #   it 'does something' do
       #     subject
       #     assert_schema_conform(200)
       #   end

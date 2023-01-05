@@ -19,14 +19,14 @@ Check for validation of redundant response HTTP status codes.
 [source,ruby]
 ----
 # bad
-it 'something' do
+it 'does something' do
   subject
   expect(response).to have_http_status 400
   assert_schema_conform(400)
 end
 
 # good
-it 'something' do
+it 'does something' do
   subject
   assert_schema_conform(400)
 end
@@ -52,13 +52,13 @@ where the expected response status code is required.
 [source,ruby]
 ----
 # bad
-it 'something' do
+it 'does something' do
   subject
   assert_schema_conform
 end
 
 # good
-it 'something' do
+it 'does something' do
   subject
   assert_schema_conform(200)
 end

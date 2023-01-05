@@ -7,14 +7,14 @@ module RuboCop
       #
       # @example
       #   # bad
-      #   it 'something' do
+      #   it 'does something' do
       #     subject
       #     expect(response).to have_http_status 400
       #     assert_schema_conform(400)
       #   end
       #
       #   # good
-      #   it 'something' do
+      #   it 'does something' do
       #     subject
       #     assert_schema_conform(400)
       #   end
