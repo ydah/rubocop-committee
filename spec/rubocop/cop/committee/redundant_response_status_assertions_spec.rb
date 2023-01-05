@@ -4,7 +4,7 @@ RSpec.describe RuboCop::Cop::Committee::RedundantResponseStatusAssertions, :conf
   it "registers an offense and autocorrects when using `assert_schema_conform` " \
      "with argument and `have_http_status`" do
     expect_offense(<<~RUBY)
-      it 'something' do
+      it 'does something' do
         subject
         expect(response).to have_http_status(400)
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Remove redundant HTTP response status code validation.
@@ -14,7 +14,7 @@ RSpec.describe RuboCop::Cop::Committee::RedundantResponseStatusAssertions, :conf
     RUBY
 
     expect_correction(<<~RUBY)
-      it 'something' do
+      it 'does something' do
         subject
         do_something
         assert_schema_conform(400)
@@ -25,7 +25,7 @@ RSpec.describe RuboCop::Cop::Committee::RedundantResponseStatusAssertions, :conf
   it "registers an offense and autocorrects when using `assert_response_schema_confirm` " \
      "with argument and `have_http_status`" do
     expect_offense(<<~RUBY)
-      it 'something' do
+      it 'does something' do
         subject
         expect(response).to have_http_status 400
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Remove redundant HTTP response status code validation.
@@ -35,7 +35,7 @@ RSpec.describe RuboCop::Cop::Committee::RedundantResponseStatusAssertions, :conf
     RUBY
 
     expect_correction(<<~RUBY)
-      it 'something' do
+      it 'does something' do
         subject
         do_something
         assert_response_schema_confirm 400
@@ -46,7 +46,7 @@ RSpec.describe RuboCop::Cop::Committee::RedundantResponseStatusAssertions, :conf
   it "does not register an offense when using `assert_schema_conform` " \
      "with no argument and `have_http_status`" do
     expect_no_offenses(<<~RUBY)
-      it 'something' do
+      it 'does something' do
         subject
         do_something
         expect(response).to have_http_status(400)
