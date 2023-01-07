@@ -4,7 +4,7 @@ module RuboCop
   module Cop
     module Committee
       # Check if the status code is specified as an argument to the method of the Committee
-      # where the expected response status code is required.
+      # where the expected response HTTP status code is required.
       #
       # @example
       #   # bad
