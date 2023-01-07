@@ -4,7 +4,7 @@ require_relative "lib/rubocop/committee/version"
 
 Gem::Specification.new do |spec|
   spec.name = "rubocop-committee"
-  spec.version = Rubocop::Committee::VERSION
+  spec.version = Rubocop::Committee::Version::STRING
   spec.authors = ["ydah"]
   spec.email = ["t.yudai92@gmail.com"]
 
