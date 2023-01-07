@@ -10,6 +10,6 @@
 
 - Initial release ([@ydah])
 
-<!-- Contributors -->
+<!-- Contributors (alphabetically) -->
 
 [@ydah]: https://github.com/ydah
