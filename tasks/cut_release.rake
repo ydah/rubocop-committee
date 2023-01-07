@@ -5,7 +5,7 @@ require "bump"
 namespace :cut_release do
   %w[major minor patch pre].each do |release_type|
     desc "Cut a new #{release_type} release and create release notes."
-    task release_type => 'changelog:check_clean' do
+    task release_type => "changelog:check_clean" do
       run(release_type)
     end
   end
@@ -21,7 +21,7 @@ namespace :cut_release do
     release_notes = new_version_changes.strip
     contributor_links = user_links(release_notes)
 
-    File.open("relnotes/v#{version}.md", 'w') do |file|
+    File.open("relnotes/v#{version}.md", "w") do |file|
       file << release_notes
       file << "\n\n"
       file << contributor_links
@@ -30,15 +30,15 @@ namespace :cut_release do
   end
 
   def update_antora_yml(new_version)
-    antora_metadata = File.read('docs/antora.yml')
+    antora_metadata = File.read("docs/antora.yml")
 
-    File.open('docs/antora.yml', 'w') do |f|
-      f << antora_metadata.sub('version: ~', "version: '#{version_sans_patch(new_version)}'")
+    File.open("docs/antora.yml", "w") do |f|
+      f << antora_metadata.sub("version: ~", "version: '#{version_sans_patch(new_version)}'")
     end
   end
 
   def version_sans_patch(version)
-    version.split('.').take(2).join('.')
+    version.split(".").take(2).join(".")
   end
 
   # Replace `<<next>>` (and variations) with version being cut.
@@ -51,7 +51,7 @@ namespace :cut_release do
   end
 
   def new_version_changes
-    changelog = File.read('CHANGELOG.md')
+    changelog = File.read("CHANGELOG.md")
     _, _, new_changes, _older_changes = changelog.split(/^## .*$/, 4)
     new_changes
   end

@@ -14,9 +14,9 @@ namespace :changelog do
     end
   end
 
-  desc 'Merge entries and delete them'
+  desc "Merge entries and delete them"
   task :merge do
-    raise 'No entries!' unless Changelog.pending?
+    raise "No entries!" unless Changelog.pending?
 
     Changelog.new.merge!.and_delete!
     cmd = "git commit -a -m 'Update Changelog'"
@@ -27,8 +27,8 @@ namespace :changelog do
   task :check_clean do
     next unless Changelog.pending?
 
-    puts '*** Pending changelog entries!'
-    puts 'Do `bundle exec rake changelog:merge`'
+    puts "*** Pending changelog entries!"
+    puts "Do `bundle exec rake changelog:merge`"
     exit(1)
   end
 end

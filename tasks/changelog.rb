@@ -1,32 +1,32 @@
 # frozen_string_literal: true
 
-if RUBY_VERSION < '2.6'
-  puts 'Changelog utilities available only for Ruby 2.6+'
+if RUBY_VERSION < "2.6"
+  puts "Changelog utilities available only for Ruby 2.6+"
   exit(1)
 end
 
 # Changelog utility
 class Changelog
-  ENTRIES_PATH = 'changelog/'
+  ENTRIES_PATH = "changelog/"
   FIRST_HEADER = /#{Regexp.escape("## Master (Unreleased)\n")}/m.freeze
   CONTRIBUTORS_HEADER = /#{Regexp.escape("<!-- Contributors -->\n\n")}/m.freeze
   ENTRIES_PATH_TEMPLATE = "#{ENTRIES_PATH}%<type>s_%<name>s.md"
   TYPE_REGEXP = /#{Regexp.escape(ENTRIES_PATH)}([a-z]+)_/.freeze
-  TYPE_TO_HEADER = { new: 'New features', fix: 'Bug fixes', change: 'Changes' }.freeze
+  TYPE_TO_HEADER = { new: "New features", fix: "Bug fixes", change: "Changes" }.freeze
   HEADER = /### (.*)/.freeze
-  PATH = 'CHANGELOG.md'
-  REF_URL = 'https://github.com/rubocop/rubocop-committee'
+  PATH = "CHANGELOG.md"
+  REF_URL = "https://github.com/rubocop/rubocop-committee"
   MAX_LENGTH = 40
-  CONTRIBUTOR = '[@%<link>s]: https://github.com/%<user>s'
-  SIGNATURE = Regexp.new(format(Regexp.escape('[@%<user>s]'), user: '([\w-]+)'))
-  CONTRIBUTOR_REGEXP = /(\[@\w*\]: https:\/\/github\.com\/\w*)/.freeze
+  CONTRIBUTOR = "[@%<link>s]: https://github.com/%<user>s"
+  SIGNATURE = Regexp.new(format(Regexp.escape("[@%<user>s]"), user: '([\w-]+)'))
+  CONTRIBUTOR_REGEXP = %r{(\[@\w*\]: https://github\.com/\w*)}.freeze
   EOF = "\n"
 
   # New entry
   Entry = Struct.new(:type, :body, :ref_type, :ref_id, :user, keyword_init: true) do
     def initialize(type:, body: last_commit_title, ref_type: nil, ref_id: nil, user: github_user)
       id, body = extract_id(body)
-      ref_id ||= id || 'x'
+      ref_id ||= id || "x"
       ref_type ||= id ? :issues : :pull
       super
     end
@@ -42,7 +42,7 @@ class Changelog
     end
 
     def content
-      period = '.' unless body.end_with? '.'
+      period = "." unless body.end_with? "."
       "- #{ref}: #{body}#{period} ([@#{user}])\n"
     end
 
@@ -81,14 +81,14 @@ class Changelog
     private
 
     def prettify(str)
-      str.gsub!(/\W/, '_')
+      str.gsub!(/\W/, "_")
 
       # Separate word boundaries by `_`.
       str.gsub!(/([A-Z]+)(?=[A-Z][a-z])|([a-z\d])(?=[A-Z])/) do
-        (Regexp.last_match(1) || Regexp.last_match(2)) << '_'
+        (Regexp.last_match(1) || Regexp.last_match(2)) << "_"
       end
 
-      str.gsub!(/\A_+|_+\z/, '')
+      str.gsub!(/\A_+|_+\z/, "")
       str.downcase!
       str
     end
@@ -109,7 +109,7 @@ class Changelog
   attr_reader :header, :rest
 
   def initialize(content: File.read(PATH), entries: Changelog.read_entries)
-    require 'strscan'
+    require "strscan"
 
     parse(content)
     @entries = entries
@@ -127,7 +127,7 @@ class Changelog
   def unreleased_content
     entry_map = parse_entries(@entries)
     merged_map = merge_entries(entry_map)
-    merged_map.flat_map { |header, things| ["### #{header}\n", *things, ''] }.join("\n")
+    merged_map.flat_map { |header, things| ["### #{header}\n", *things, ""] }.join("\n")
   end
 
   def merge_content
@@ -147,7 +147,7 @@ class Changelog
 
   def contributors
     contributors = @entries.values.flat_map do |entry|
-      entry.match(/\. \((?<contributors>.+)\)\n/)[:contributors].split(',')
+      entry.match(/\. \((?<contributors>.+)\)\n/)[:contributors].split(",")
     end
 
     contributors.join.scan(SIGNATURE).flatten
