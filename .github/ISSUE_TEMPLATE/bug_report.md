@@ -14,7 +14,7 @@ hasn't been reported (and potentially fixed) already.*
 *Before filing the ticket you should replace all text above the horizontal
 rule with your own words.*
 
---------
+______________________________________________________________________
 
 ## Expected behavior
 
