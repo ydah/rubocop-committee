@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "rubocop"
-require "rubocop-rspec"
 
 module RuboCop
   module Committee
