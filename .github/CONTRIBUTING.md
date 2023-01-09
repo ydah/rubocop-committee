@@ -17,10 +17,25 @@ If you encounter problems or have ideas for improvements or new features, please
 2. Create a feature branch.
 3. Make sure to add tests.
 4. Make sure the test suite passes (run `rake`).
-5. Add a [changelog](https://github.com/ydah/rubocop-committee/blob/master/CHANGELOG.md) entry.
+5. Add an entry to the [Changelog](https://github.com/ydah/rubocop-committee/blob/master/CHANGELOG.md) by creating a file `changelog/{type}_{some_description}.md`. See [changelog entry format](#changelog-entry-format) for details.
 6. Commit your changes.
 7. Push to the branch.
 8. Create new Pull Request.
+
+### Changelog entry format
+
+Here are a few examples:
+
+```
+- [#1514](https://github.com/rubocop/rubocop-rspec/issue/1514): Fix a false positive for `RSpec/PendingWithoutReason` when not inside example. ([@ydah])
+```
+
+- Create one file `changelog/{type}_{some_description}.md`, where `type` is `new` (New feature), `fix` or `change`, and `some_description` is unique to avoid conflicts. Task `changelog:fix` (or `:new` or `:change`) can help you.
+- Mark it up in [Markdown syntax][1].
+- The entry line should start with `- ` (an hyphen and a space).
+- If the change has a related GitHub issue (e.g. a bug fix for a reported issue), put a link to the issue as `[#1514](https://github.com/rubocop/rubocop-rspec/issues/1514): `.
+- Describe the brief of the change. The sentence should end with a punctuation.
+- At the end of the entry, add an implicit link to your GitHub user page as `([@username])`.
 
 ### Spell Checking
 
@@ -56,3 +71,5 @@ $ mdformat . --number
 - Add an entry to `config/default.yml`. It's an ordered list, so be sure to insert at the appropriate place.
 - Run `bundle exec rake`. This will verify that the build passes as well as generate documentation and ensure that `config/default.yml` is up to date (don't forget to commit the documentation).
 - Add tests for as many use cases as you can think of. Always add tests for both bad code that should register an offense and good code that should not.
+
+[1]: https://daringfireball.net/projects/markdown/syntax
