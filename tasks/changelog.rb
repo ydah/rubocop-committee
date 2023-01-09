@@ -9,7 +9,7 @@ end
 class Changelog
   ENTRIES_PATH = "changelog/"
   FIRST_HEADER = /#{Regexp.escape("## Master (Unreleased)\n")}/m.freeze
-  CONTRIBUTORS_HEADER = /#{Regexp.escape("<!-- Contributors -->\n\n")}/m.freeze
+  CONTRIBUTORS_HEADER = /#{Regexp.escape("<!-- Contributors (alphabetically) -->\n\n")}/m.freeze
   ENTRIES_PATH_TEMPLATE = "#{ENTRIES_PATH}%<type>s_%<name>s.md"
   TYPE_REGEXP = /#{Regexp.escape(ENTRIES_PATH)}([a-z]+)_/.freeze
   TYPE_TO_HEADER = { new: "New features", fix: "Bug fixes", change: "Changes" }.freeze
@@ -19,7 +19,6 @@ class Changelog
   MAX_LENGTH = 40
   CONTRIBUTOR = "[@%<link>s]: https://github.com/%<user>s"
   SIGNATURE = Regexp.new(format(Regexp.escape("[@%<user>s]"), user: '([\w-]+)'))
-  CONTRIBUTOR_REGEXP = %r{(\[@\w*\]: https://github\.com/\w*)}.freeze
   EOF = "\n"
 
   # New entry
@@ -127,7 +126,9 @@ class Changelog
   def unreleased_content
     entry_map = parse_entries(@entries)
     merged_map = merge_entries(entry_map)
-    merged_map.flat_map { |header, things| ["### #{header}\n", *things, ""] }.join("\n")
+    merged_map.flat_map do |header, things|
+      ["### #{header}\n", *things, ""]
+    end.join("\n")
   end
 
   def merge_content
@@ -137,7 +138,7 @@ class Changelog
   end
 
   def all_contributors
-    (@contributors.scan(CONTRIBUTOR_REGEXP).flatten + new_contributors).uniq.sort
+    (@contributors.split(/\R/) + new_contributors).uniq.sort
   end
 
   def new_contributors
