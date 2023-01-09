@@ -34,17 +34,17 @@ RSpec.describe "config/default.yml" do
   end
 
   it "sorts configuration keys alphabetically with nested namespaces last" do
-    rspec_keys = default_config.keys.select { |key| key.start_with?("Committee") }
-    namespaced_rspec_keys = rspec_keys.select do |key|
+    committee_keys = default_config.keys.select { |key| key.start_with?("Committee") }
+    namespaced_committee_keys = committee_keys.select do |key|
       key.start_with?(*(namespaces.values - ["Committee"]))
     end
 
-    expected = rspec_keys.sort_by do |key|
-      namespaced = namespaced_rspec_keys.include?(key) ? 1 : 0
+    expected = committee_keys.sort_by do |key|
+      namespaced = namespaced_committee_keys.include?(key) ? 1 : 0
       "#{namespaced} #{key}"
     end
 
-    rspec_keys.each_with_index do |key, idx|
+    committee_keys.each_with_index do |key, idx|
       expect(key).to eq expected[idx]
     end
   end
