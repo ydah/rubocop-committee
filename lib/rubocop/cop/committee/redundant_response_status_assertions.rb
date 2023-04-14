@@ -35,7 +35,7 @@ module RuboCop
           return if node.first_argument.nil?
 
           have_http_status(node.parent) do |http_node|
-            autocorrect(node, http_node.parent.loc.expression)
+            autocorrect(node, http_node.parent.source_range)
           end
         end
 
