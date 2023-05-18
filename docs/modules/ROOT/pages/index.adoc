@@ -1,6 +1,6 @@
 = RuboCop Committee
 
-Committee-specific analysis for your projects, as an extension to
+https://github.com/interagent/committee[Committee]-specific analysis for your projects, as an extension to
 https://github.com/rubocop/rubocop[RuboCop].
 
 RuboCop Committee follows the https://docs.rubocop.org/rubocop/versioning.html[RuboCop versioning guide].
