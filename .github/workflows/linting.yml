@@ -21,6 +21,8 @@ jobs:
       - name: Mdformat
         uses: ydah/mdformat-action@main
         with:
+          file_or_dir:
+            CODE_OF_CONDUCT.md CHANGELOG.md README.md .github/PULL_REQUEST_TEMPLATE.md .github/CONTRIBUTING.md .github/ISSUE_TEMPLATE/feature_request.md .github/ISSUE_TEMPLATE/bug_report.md MIT-LICENSE.md
           number: true
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
