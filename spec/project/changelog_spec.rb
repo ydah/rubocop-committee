@@ -45,9 +45,9 @@ RSpec.describe "CHANGELOG.md" do
 
     describe "link to related issue on github" do
       let(:issues) do
-        entries.map do |entry|
+        entries.filter_map do |entry|
           entry.match(/\[(?<number>[#\d]+)\]\((?<url>[^)]+)\)/)
-        end.compact
+        end
       end
 
       it "has an issue number prefixed with #" do
