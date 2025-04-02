@@ -10,7 +10,6 @@ module SpecHelper
 end
 
 RSpec.configure do |config|
-  config.include RuboCop::RSpec::ExpectOffense
   config.order = :random
   config.disable_monkey_patching!
   config.raise_errors_for_deprecations!
