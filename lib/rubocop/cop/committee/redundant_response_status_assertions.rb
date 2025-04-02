@@ -31,7 +31,7 @@ module RuboCop
           $(send nil? :have_http_status (:int _))
         PATTERN
 
-        def on_send(node)
+        def on_send(node) # rubocop:disable InternalAffairs/OnSendWithoutOnCSend
           return if node.first_argument.nil?
 
           have_http_status(node.parent) do |http_node|
