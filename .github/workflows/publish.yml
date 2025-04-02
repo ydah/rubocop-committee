@@ -1,0 +1,46 @@
+name: Publish
+on:
+  push:
+    branches: master
+    paths: lib/rubocop/committee/version.rb
+jobs:
+  publish:
+    name: Publish to RubyGems
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'ydah'
+    permissions:
+      actions: write
+      contents: write
+      id-token: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: ruby
+      - uses: rubygems/release-gem@v1
+      - name: Create a GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          bundle exec rake create_release_notes
+          gh release create $(git tag --points-at @) \
+            --title "RuboCop Committee $(git tag --points-at @)" \
+            --notes-file relnotes.md
+      - name: Replace version in Antora config
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sed -i 's/version:.*$/version: ~/' docs/antora.yml
+          if ! git diff --exit-code docs/antora.yml; then
+            branch=switch-docs-version-$(git tag --points-at @)
+            git config user.name "${GITHUB_ACTOR}"
+            git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+            git checkout -b "$branch"
+            git add docs/antora.yml
+            git commit -m "Switch docs version back"
+            git push -u origin "$branch"
+            gh pr create --fill --head "$branch"
+          fi
