@@ -1,6 +1,4 @@
-# RuboCop Committee
-
-![GitHub top language](https://img.shields.io/github/languages/top/ydah/rubocop-committee?color=39ff14) [![Gem Version](https://badge.fury.io/rb/rubocop-committee.svg)](https://badge.fury.io/rb/rubocop-committee) [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop) [![CI](https://github.com/ydah/rubocop-committee/actions/workflows/ci.yml/badge.svg)](https://github.com/ydah/rubocop-committee/actions/workflows/ci.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/a1b121696e9d1b425406/maintainability)](https://codeclimate.com/github/ydah/rubocop-committee/maintainability)
+# RuboCop Committee [![Gem Version](https://badge.fury.io/rb/rubocop-committee.svg)](https://badge.fury.io/rb/rubocop-committee) [![CI](https://github.com/ydah/rubocop-committee/actions/workflows/ci.yml/badge.svg)](https://github.com/ydah/rubocop-committee/actions/workflows/ci.yml)
 
 [Committee](https://github.com/interagent/committee)-specific analysis for your projects, as an extension to
 [RuboCop](https://github.com/rubocop/rubocop).
