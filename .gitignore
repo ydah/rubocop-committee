@@ -14,3 +14,5 @@
 .bundle
 Gemfile.lock
 Gemfile.local
+
+/relnotes.md
