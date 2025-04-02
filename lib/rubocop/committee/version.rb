@@ -3,7 +3,7 @@
 module Rubocop
   module Committee
     module Version
-      STRING = "0.1.1"
+      STRING = "1.0.0"
     end
   end
 end
