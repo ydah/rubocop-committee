@@ -1,1 +1,0 @@
-- [#8](https://github.com/rubocop/rubocop-committee/pull/8): Pluginfy RuboCop Committee. ([@ydah][])
