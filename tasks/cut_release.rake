@@ -2,13 +2,8 @@
 
 require "bump"
 
-namespace :cut_release do
-  %w[major minor patch pre].each do |release_type|
-    desc "Cut a new #{release_type} release and create release notes."
-    task release_type => "changelog:check_clean" do
-      run(release_type)
-    end
-  end
+module CutRelease
+  module_function
 
   def add_header_to_changelog(version)
     update_file("CHANGELOG.md") do |changelog|
@@ -87,5 +82,14 @@ namespace :cut_release do
     update_antora_yml(new_version)
 
     puts "Changed version from #{old_version} to #{new_version}."
+  end
+end
+
+namespace :cut_release do
+  %w[major minor patch pre].each do |release_type|
+    desc "Cut a new #{release_type} release and create release notes."
+    task release_type => "changelog:check_clean" do
+      CutRelease.run(release_type)
+    end
   end
 end
