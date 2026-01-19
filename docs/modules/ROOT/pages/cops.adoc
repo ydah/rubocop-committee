@@ -3,6 +3,7 @@
 === Department xref:cops_committee.adoc[Committee]
 
 * xref:cops_committee.adoc#committeeassertschemaconformwithoutrequest[Committee/AssertSchemaConformWithoutRequest]
+* xref:cops_committee.adoc#committeedeprecatedoldassertbehavior[Committee/DeprecatedOldAssertBehavior]
 * xref:cops_committee.adoc#committeemultipleschemaconform[Committee/MultipleSchemaConform]
 * xref:cops_committee.adoc#committeeredundantresponsestatusassertions[Committee/RedundantResponseStatusAssertions]
 * xref:cops_committee.adoc#committeeunspecifiedexpectedstatus[Committee/UnspecifiedExpectedStatus]

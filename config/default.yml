@@ -11,6 +11,11 @@ Committee/AssertSchemaConformWithoutRequest:
   Enabled: pending
   VersionAdded: "<<next>>"
 
+Committee/DeprecatedOldAssertBehavior:
+  Description: Check if `committee_options` enables deprecated `old_assert_behavior`.
+  Enabled: pending
+  VersionAdded: "<<next>>"
+
 Committee/MultipleSchemaConform:
   Description: Check for multiple schema conformance assertions within the same request block.
   Enabled: pending
