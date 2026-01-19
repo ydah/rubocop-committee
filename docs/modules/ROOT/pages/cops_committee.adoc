@@ -6,6 +6,72 @@
 
 = Committee
 
+[#committeeassertschemaconformwithoutrequest]
+== Committee/AssertSchemaConformWithoutRequest
+
+|===
+| Enabled by default | Safe | Supports autocorrection | Version Added | Version Changed
+
+| Enabled
+| Yes
+| No
+| -
+| -
+|===
+
+Check if `assert_*_schema_conform` is called without making an HTTP request.
+
+[#examples-committeeassertschemaconformwithoutrequest]
+=== Examples
+
+[source,ruby]
+----
+# bad
+it 'conforms to schema' do
+  assert_schema_conform(200)
+end
+
+# good
+it 'conforms to schema' do
+  get '/users'
+  assert_schema_conform(200)
+end
+----
+
+[#committeemultipleschemaconform]
+== Committee/MultipleSchemaConform
+
+|===
+| Enabled by default | Safe | Supports autocorrection | Version Added | Version Changed
+
+| Enabled
+| Yes
+| No
+| -
+| -
+|===
+
+Check for multiple schema conformance assertions within the same request block.
+
+[#examples-committeemultipleschemaconform]
+=== Examples
+
+[source,ruby]
+----
+# bad
+it 'returns users' do
+  get '/users'
+  assert_schema_conform(200)
+  assert_response_schema_confirm(200)
+end
+
+# good
+it 'returns users' do
+  get '/users'
+  assert_schema_conform(200)
+end
+----
+
 [#committeeredundantresponsestatusassertions]
 == Committee/RedundantResponseStatusAssertions
 
