@@ -11,6 +11,11 @@ Committee/AssertSchemaConformWithoutRequest:
   Enabled: pending
   VersionAdded: "<<next>>"
 
+Committee/MultipleSchemaConform:
+  Description: Check for multiple schema conformance assertions within the same request block.
+  Enabled: pending
+  VersionAdded: "<<next>>"
+
 Committee/RedundantResponseStatusAssertions:
   Description: Check for validation of redundant response HTTP status codes.
   Enabled: pending
