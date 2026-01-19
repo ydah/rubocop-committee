@@ -38,6 +38,37 @@ it 'conforms to schema' do
 end
 ----
 
+[#committeedeprecatedoldassertbehavior]
+== Committee/DeprecatedOldAssertBehavior
+
+|===
+| Enabled by default | Safe | Supports autocorrection | Version Added | Version Changed
+
+| Enabled
+| Yes
+| No
+| -
+| -
+|===
+
+Check if `committee_options` enables deprecated `old_assert_behavior`.
+
+[#examples-committeedeprecatedoldassertbehavior]
+=== Examples
+
+[source,ruby]
+----
+# bad
+def committee_options
+  { schema_path: "schema.yaml", old_assert_behavior: true }
+end
+
+# good
+def committee_options
+  { schema_path: "schema.yaml", old_assert_behavior: false }
+end
+----
+
 [#committeemultipleschemaconform]
 == Committee/MultipleSchemaConform
 

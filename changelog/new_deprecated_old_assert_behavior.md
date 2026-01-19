@@ -1,0 +1,1 @@
+- [#13](https://github.com/ydah/rubocop-committee/pull/13) Add `Committee/DeprecatedOldAssertBehavior` cop to warn when `committee_options` enables `old_assert_behavior`. ([@ydah])
