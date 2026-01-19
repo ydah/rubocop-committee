@@ -72,7 +72,7 @@ In your `.rubocop.yml`, you may treat the Committee cops just like any other
 cop. For example:
 
 ```yaml
-Committee/FilePath:
+Committee/RedundantResponseStatusAssertions:
   Exclude:
     - spec/my_poorly_named_spec_file.rb
 ```
