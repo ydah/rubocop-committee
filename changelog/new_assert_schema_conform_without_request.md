@@ -1,0 +1,1 @@
+- [#11](https://github.com/ydah/rubocop-committee/pull/11) Add `Committee/AssertSchemaConformWithoutRequest` cop to warn when schema conformance is asserted without an HTTP request. ([@ydah])
