@@ -6,6 +6,7 @@
 * xref:cops_committee.adoc#committeedeprecatedoldassertbehavior[Committee/DeprecatedOldAssertBehavior]
 * xref:cops_committee.adoc#committeemultipleschemaconform[Committee/MultipleSchemaConform]
 * xref:cops_committee.adoc#committeeredundantresponsestatusassertions[Committee/RedundantResponseStatusAssertions]
+* xref:cops_committee.adoc#committeeschemaconformconsistency[Committee/SchemaConformConsistency]
 * xref:cops_committee.adoc#committeeunspecifiedexpectedstatus[Committee/UnspecifiedExpectedStatus]
 * xref:cops_committee.adoc#committeeunusedschemacoverage[Committee/UnusedSchemaCoverage]
 

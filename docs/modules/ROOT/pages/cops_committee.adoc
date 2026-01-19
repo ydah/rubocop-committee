@@ -137,6 +137,63 @@ it 'does something' do
 end
 ----
 
+[#committeeschemaconformconsistency]
+== Committee/SchemaConformConsistency
+
+|===
+| Enabled by default | Safe | Supports autocorrection | Version Added | Version Changed
+
+| Enabled
+| Yes
+| No
+| -
+| -
+|===
+
+Prefer `assert_schema_conform` when request and response schema confirmations
+are both asserted in the same example.
+
+[#examples-committeeschemaconformconsistency]
+=== Examples
+
+[#enforcedstyle_-combined-_default_-committeeschemaconformconsistency]
+==== EnforcedStyle: combined (default)
+
+[source,ruby]
+----
+# bad
+it 'returns users' do
+  get '/users'
+  assert_request_schema_confirm
+  assert_response_schema_confirm(200)
+end
+
+# good
+it 'returns users' do
+  get '/users'
+  assert_schema_conform(200)
+end
+----
+
+[#enforcedstyle_-separate-committeeschemaconformconsistency]
+==== EnforcedStyle: separate
+
+[source,ruby]
+----
+# bad
+it 'returns users' do
+  get '/users'
+  assert_schema_conform(200)
+end
+
+# good
+it 'returns users' do
+  get '/users'
+  assert_request_schema_confirm
+  assert_response_schema_confirm(200)
+end
+----
+
 [#committeeunspecifiedexpectedstatus]
 == Committee/UnspecifiedExpectedStatus
 
