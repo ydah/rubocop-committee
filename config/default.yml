@@ -6,6 +6,11 @@ inherit_mode:
 Committee:
   Enabled: true
 
+Committee/AssertSchemaConformWithoutRequest:
+  Description: Check if `assert_*_schema_conform` is called without making an HTTP request.
+  Enabled: pending
+  VersionAdded: "<<next>>"
+
 Committee/RedundantResponseStatusAssertions:
   Description: Check for validation of redundant response HTTP status codes.
   Enabled: pending
