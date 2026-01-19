@@ -5,6 +5,7 @@ source "https://rubygems.org"
 gemspec
 
 gem "bump", require: false
+gem "irb"
 gem "rake"
 gem "rspec", "~> 3.11"
 gem "rubocop-performance", "~> 1.7"
