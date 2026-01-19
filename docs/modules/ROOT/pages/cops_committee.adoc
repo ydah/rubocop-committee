@@ -170,3 +170,40 @@ it 'does something' do
   assert_schema_conform(200)
 end
 ----
+
+[#committeeunusedschemacoverage]
+== Committee/UnusedSchemaCoverage
+
+|===
+| Enabled by default | Safe | Supports autocorrection | Version Added | Version Changed
+
+| Enabled
+| Yes
+| No
+| -
+| -
+|===
+
+Check for unused schema coverage setup without any report call.
+
+[#examples-committeeunusedschemacoverage]
+=== Examples
+
+[source,ruby]
+----
+# bad
+before do
+  @schema_coverage = Committee::Test::SchemaCoverage.new(schema)
+  @committee_options[:schema_coverage] = @schema_coverage
+end
+
+# good
+before do
+  @schema_coverage = Committee::Test::SchemaCoverage.new(schema)
+  @committee_options[:schema_coverage] = @schema_coverage
+end
+
+after(:all) do
+  @schema_coverage.report
+end
+----

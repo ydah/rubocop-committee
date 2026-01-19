@@ -1,0 +1,1 @@
+- [#14](https://github.com/ydah/rubocop-committee/pull/14) Add `Committee/UnusedSchemaCoverage` cop to warn when schema coverage is set up without any report call. ([@ydah])
