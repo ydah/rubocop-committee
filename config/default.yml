@@ -32,3 +32,8 @@ Committee/UnspecifiedExpectedStatus:
     where the expected response status code is required.
   Enabled: pending
   VersionAdded: "0.1"
+
+Committee/UnusedSchemaCoverage:
+  Description: Check for schema coverage setup without any report call.
+  Enabled: pending
+  VersionAdded: "<<next>>"
