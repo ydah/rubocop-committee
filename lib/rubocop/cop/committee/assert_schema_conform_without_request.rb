@@ -20,7 +20,6 @@ module RuboCop
       class AssertSchemaConformWithoutRequest < Base
         MSG = "Call an HTTP request method before asserting schema conformance."
 
-        REQUEST_METHODS = %i[get post put patch delete head options].freeze
         ASSERT_METHODS = %i[
           assert_schema_conform
           assert_request_schema_confirm
@@ -114,7 +113,7 @@ module RuboCop
         end
 
         def request_method?(send_node)
-          send_node.receiver.nil? && REQUEST_METHODS.include?(send_node.method_name)
+          ::RuboCop::Committee::RequestMethod.call?(send_node)
         end
       end
     end

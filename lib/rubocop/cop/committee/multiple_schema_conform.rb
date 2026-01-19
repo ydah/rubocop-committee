@@ -27,7 +27,6 @@ module RuboCop
           assert_request_schema_confirm
           assert_response_schema_confirm
         ].freeze
-        REQUEST_METHODS = %i[get post put patch delete head options].freeze
         EXAMPLE_METHODS = %i[it specify example scenario].freeze
 
         RESTRICT_ON_SEND = ASSERT_METHODS
@@ -80,7 +79,7 @@ module RuboCop
         def request_call?(node)
           return false unless node&.send_type?
 
-          node.receiver.nil? && REQUEST_METHODS.include?(node.method_name)
+          ::RuboCop::Committee::RequestMethod.call?(node)
         end
 
         def segment_for(node, segments)
