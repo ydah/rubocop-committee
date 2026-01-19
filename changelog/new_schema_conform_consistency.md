@@ -1,0 +1,1 @@
+- [#15](https://github.com/ydah/rubocop-committee/pull/15) Add `Committee/SchemaConformConsistency` cop to enforce preferred schema conformance assertion style. ([@ydah])

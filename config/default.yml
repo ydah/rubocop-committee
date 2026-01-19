@@ -26,6 +26,15 @@ Committee/RedundantResponseStatusAssertions:
   Enabled: pending
   VersionAdded: "0.1"
 
+Committee/SchemaConformConsistency:
+  Description: Prefer `assert_schema_conform` or separate request/response confirmations based on EnforcedStyle.
+  Enabled: pending
+  SupportedStyles:
+    - combined
+    - separate
+  EnforcedStyle: combined
+  VersionAdded: "<<next>>"
+
 Committee/UnspecifiedExpectedStatus:
   Description: |
     Check if the status code is specified as an argument to the method of the Committee
