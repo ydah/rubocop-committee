@@ -1,0 +1,1 @@
+- [#12](https://github.com/ydah/rubocop-committee/pull/12) Add `Committee/MultipleSchemaConform` cop to detect multiple schema conformance assertions within a single request block. ([@ydah])
